@@ -1,22 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   isdigit.c                                          :+:      :+:    :+:   */
+/*   ft_ispriting.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: aaizenbe <aaizenbe@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/27 15:48:54 by aaizenbe          #+#    #+#             */
-/*   Updated: 2023/11/27 15:48:57 by aaizenbe         ###   ########.fr       */
+/*   Created: 2023/11/27 16:53:57 by aaizenbe          #+#    #+#             */
+/*   Updated: 2023/11/27 16:54:01 by aaizenbe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "libft.h"
 
-#include <stdio.h>
-#include <stdbool.h>
+int ft_isprint(char c){
 
-int isdigit(int c){
-
-    if(c >= 48 && c<= 57) {
+    if(c >= 32 && c<= 126){
         return true;
     }
     else{
@@ -25,15 +23,15 @@ int isdigit(int c){
 }
 
 
-int main(){
+// int main(){
     
-    char ex[] = "1";
+//     char ex[] = "a";
     
     
-    if(isdigit(ex[0])){
-        printf("num");
-    }
-    else{
-        printf("not num");
-    }
-}
+//     if(ft_isprint(ex[0])){
+//         printf("printing");
+//     }
+//     else{
+//         printf("not printing");
+//     }
+// }

@@ -1,38 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_ispriting.c                                     :+:      :+:    :+:   */
+/*   tolower.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: aaizenbe <aaizenbe@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/27 16:53:57 by aaizenbe          #+#    #+#             */
-/*   Updated: 2023/11/27 16:54:01 by aaizenbe         ###   ########.fr       */
+/*   Created: 2023/11/27 15:52:38 by aaizenbe          #+#    #+#             */
+/*   Updated: 2023/11/27 15:52:41 by aaizenbe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdio.h>
-#include <stdbool.h>
 
-int ft_isprint(char c){
+#include "libft.h"
 
-    if(c >= 32 && c<= 126){
-        return true;
+int ft_tolower(char c){
+
+    if(c >= 65 && c <= 90){
+        c = c + 32;
+        return(c);
     }
     else{
-        return false;
+        return c;
     }
+
 }
 
-
-int main(){
+// int main(){
     
-    char ex[] = "a";
+//     char ex[] = "b";
     
-    
-    if(ft_isprint(ex[0])){
-        printf("printing");
-    }
-    else{
-        printf("not printing");
-    }
-}
+//     printf ("c = %d \n",ft_tolower(ex[0]));
+// }

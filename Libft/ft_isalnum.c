@@ -1,21 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   isascii.c                                          :+:      :+:    :+:   */
+/*   isalnum.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: aaizenbe <aaizenbe@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/27 16:40:13 by aaizenbe          #+#    #+#             */
-/*   Updated: 2023/11/27 16:41:01 by aaizenbe         ###   ########.fr       */
+/*   Created: 2023/11/27 16:14:38 by aaizenbe          #+#    #+#             */
+/*   Updated: 2023/11/27 16:14:40 by aaizenbe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdio.h>
-#include <stdbool.h>
 
-int ft_isascii(char c){
+#include "libft.h"
 
-    if(c >= 0 && c<= 127){
+int ft_isalnum(char c){
+
+    if((c >= 65 && c<= 90) || (c >= 97 && c<= 122) || (c >= 48 && c<= 57)){
         return true;
     }
     else{
@@ -24,15 +24,15 @@ int ft_isascii(char c){
 }
 
 
-int main(){
+// int main(){
     
-    char ex[] = "Ä";
+//     char ex[9] = "A23sadasd";
     
     
-    if(ft_isascii(ex[0])){
-        printf("is ascii");
-    }
-    else{
-        printf("not ascii");
-    }
-}
+//     if(ft_isalnum(ex[0])){
+//         printf("aplhanum");
+//     }
+//     else{
+//         printf("not alphanum");
+//     }
+// }

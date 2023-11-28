@@ -10,13 +10,11 @@
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "libft.h"
 
-#include <stdio.h>
-#include <stdbool.h>
+int ft_isalpha(char c){
 
-int alpha(char c){
-
-    if((c >= 65 && c<= 90) || (c >= 97 && c<= 90)){
+    if((c >= 65 && c <= 90) || (c >= 97 && c <= 122)){
         return true;
     }
     else{
@@ -24,16 +22,14 @@ int alpha(char c){
     }
 }
 
-
-int main(){
+// int main(){
     
-    char ex[] = "A";
+//     char ex[] = "A";
     
-    
-    if(alpha(ex[0])){
-        printf("aplha");
-    }
-    else{
-        printf("not alpha");
-    }
-}
+//     if(ft_isalpha(ex[0])){
+//         printf("alpha");
+//     }
+//     else{
+//         printf("not alpha");
+//     }
+// }

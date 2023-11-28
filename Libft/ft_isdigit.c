@@ -1,22 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   isalnum.c                                          :+:      :+:    :+:   */
+/*   isdigit.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: aaizenbe <aaizenbe@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/27 16:14:38 by aaizenbe          #+#    #+#             */
-/*   Updated: 2023/11/27 16:14:40 by aaizenbe         ###   ########.fr       */
+/*   Created: 2023/11/27 15:48:54 by aaizenbe          #+#    #+#             */
+/*   Updated: 2023/11/27 15:48:57 by aaizenbe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 
-#include <stdio.h>
-#include <stdbool.h>
+#include "libft.h"
 
-int alphanum(char c){
+int ft_isdigit(int c){
 
-    if((c >= 65 && c<= 90) || (c >= 97 && c<= 90) || (c >= 48 && c<= 57)){
+    if(c >= 48 && c<= 57) {
         return true;
     }
     else{
@@ -25,15 +24,15 @@ int alphanum(char c){
 }
 
 
-int main(){
+// int main(){
     
-    char ex[9] = "A23sadasd";
+//     char ex[] = "1";
     
     
-    if(alphanum(ex[0])){
-        printf("aplhanum");
-    }
-    else{
-        printf("not alphanum");
-    }
-}
+//     if(ft_isdigit(ex[0])){
+//         printf("num");
+//     }
+//     else{
+//         printf("not num");
+//     }
+// }

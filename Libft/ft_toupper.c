@@ -11,10 +11,9 @@
 /* ************************************************************************** */
 
 
-#include <stdio.h>
-#include <stdbool.h>
+#include "libft.h"
 
-int toapper(char c){
+int ft_toupper(char c){
 
     if(c >= 97 && c <= 122){
         c = c - 32;
@@ -27,9 +26,9 @@ int toapper(char c){
 }
 
 
-int main(){
+// int main(){
     
-    char ex[] = "b";
+//     char ex[] = "b";
     
-    printf ("c = %d \n",toapper(ex[0]));
-}
+//     printf ("c = %d \n", ft_toupper(ex[0]));
+// }

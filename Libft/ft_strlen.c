@@ -11,8 +11,7 @@
 /* ************************************************************************** */
 
 
-#include <stdio.h>
-#include <stddef.h>
+#include "libft.h"
 
 
 size_t ft_strlen(const char *string){
@@ -28,11 +27,11 @@ size_t ft_strlen(const char *string){
 }
 
 
-int main(){
+// int main(){
     
-    char ex[] = "fsdfsdfsdf";
+//     char ex[] = "fsdfsdfsdf";
     
     
-    printf("%zu\n", ft_strlen(ex));
+//     printf("%zu\n", ft_strlen(ex));
 
-}
+// }
