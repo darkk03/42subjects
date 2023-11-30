@@ -1,35 +1,38 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlen.c                                        :+:      :+:    :+:   */
+/*   ft_ispriting.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: aaizenbe <aaizenbe@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/27 17:08:30 by aaizenbe          #+#    #+#             */
-/*   Updated: 2023/11/27 17:08:33 by aaizenbe         ###   ########.fr       */
+/*   Created: 2023/11/27 16:53:57 by aaizenbe          #+#    #+#             */
+/*   Updated: 2023/11/27 16:54:01 by aaizenbe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include <stdio.h>
+#include <stdbool.h>
 
-#include "libft.h"
+int ft_isprint(char c){
 
-
-size_t ft_strlen(const char *string)
-{
-    size_t  x;
-    
-    x = 0;
-    while(string[x] != '\0')
-        x++;
-    return (x);
+    if(c >= 32 && c<= 126){
+        return true;
+    }
+    else{
+        return false;
+    }
 }
 
 
-// int main(){
+int main(){
     
-//     char ex[] = "fsdfsdfsdf";
+    char ex[] = "a";
     
     
-//     printf("%zu\n", ft_strlen(ex));
-
-// }
+    if(ft_isprint(ex[0])){
+        printf("printing");
+    }
+    else{
+        printf("not printing");
+    }
+}

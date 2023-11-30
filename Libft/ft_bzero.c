@@ -1,6 +1,14 @@
-
-
-
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_bzero.c                                         :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: aaizenbe <aaizenbe@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/11/30 11:37:47 by aaizenbe          #+#    #+#             */
+/*   Updated: 2023/11/30 11:39:54 by aaizenbe         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
 
 // sets all bytes of the specified memory block to zero
@@ -12,6 +20,7 @@
 void ft_bzero(void* s, size_t n){
     ft_memset(s, 0, n);
 }
+
 
 
 // void*	ft_memset(void* b, int c, size_t len){

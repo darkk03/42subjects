@@ -1,48 +1,49 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memset.c                                        :+:      :+:    :+:   */
+/*   ft_strlcpy.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: aaizenbe <aaizenbe@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/30 11:41:44 by aaizenbe          #+#    #+#             */
-/*   Updated: 2023/11/30 11:41:47 by aaizenbe         ###   ########.fr       */
+/*   Created: 2023/11/30 12:51:56 by aaizenbe          #+#    #+#             */
+/*   Updated: 2023/11/30 15:56:44 by aaizenbe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-// sets all bytes of the specified memory block to the specified value
-
 #include "libft.h"
 
-void	*ft_memset(void *b, int c, size_t len){
-    
+size_t  ft_strlcpy(char *dst, const char *src, size_t dstsize){
     
     size_t i;
-    unsigned char *str;
     
     i = 0;
     
-    str = (unsigned char *)b;
-    
-    while(i < len){
-        str[i++] = (unsigned char)c;
+    while(src[i] != '\0' && i < dstsize)
+    {
+        dst[i] = src[i];
+        i++;
     }
-    return (b); 
+    dst[i] != '\0';
+
+    while(src[i] != '\0') {
+        i++;
+    }
+    return i;
 }
 
+/*int main() {
+    
+    
+     char src[10] = "asdgfdgrrj";
 
+     char dst[10] = "";
+     
+     int i;
 
-// int main(void){
-    
-//     char ex[10];
-    
+     i = ft_strlcpy(dst, src, 10);
 
-//     ft_memset(ex, 'a', sizeof(ex));
-    
-//     for (int i = 0; i < 10; i++)
-//         printf("%c", ex[i]);
-    
-//     printf("\n");
-    
-//     return 0;
-// }
+     printf("%s\n", dst);
+     return 1;
+}
+
+*/
