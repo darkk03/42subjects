@@ -1,40 +1,57 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strchr.c                                        :+:      :+:    :+:   */
+/*   ft_strrchr.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: aaizenbe <aaizenbe@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/30 16:57:08 by aaizenbe          #+#    #+#             */
-/*   Updated: 2023/11/30 18:03:56 by aaizenbe         ###   ########.fr       */
+/*   Created: 2023/12/01 14:18:45 by aaizenbe          #+#    #+#             */
+/*   Updated: 2023/12/01 14:18:45 by aaizenbe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char *ft_strchr(const char *s, int c){
+// size_t ft_strlen(const char *string);
 
-    while(*s != '\0')
+char *ft_strrchr(const char *s, int c){
+
+    int i;
+    
+    i = ft_strlen((char *)s);
+    
+    while(i >= 0)
     {
         if(*s ==  '\0')
 			return (NULL);
-		else if(*s == c)
-            return (char *)s;
-        s++;
+		else if(s[i] == c)
+            return ((char *)&s[i]);
+        i--;
     }
     return NULL;
 }
 
 
+// size_t ft_strlen(const char *string)
+// {
+//     size_t  x;
+    
+//     x = 0;
+//     while(string[x] != '\0')
+//         x++;
+//     return (x);
+// }
+
+
 // int main() {
     
-//     char *s = "Haola";
+//     char *s = "aoala";
 //     char c = 'a';
 
-//     char *result = ft_strchr(s, c);
+//     char *result = ft_strrchr(s, c);
 
 
-//     if (ft_strchr(s,c) == NULL){
+//     if (ft_strrchr(s,c) == NULL){
 //         printf("0");
 //     }
 //     else{
@@ -43,3 +60,6 @@ char *ft_strchr(const char *s, int c){
 
 //     return 0;
 // }
+
+
+
