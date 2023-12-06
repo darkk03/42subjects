@@ -6,7 +6,7 @@
 /*   By: aaizenbe <aaizenbe@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/05 15:59:16 by aaizenbe          #+#    #+#             */
-/*   Updated: 2023/12/05 15:59:16 by aaizenbe         ###   ########.fr       */
+/*   Updated: 2023/12/06 15:49:56 by aaizenbe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,7 +57,9 @@ char **ft_split(char const *s, char c) {
             }
             str[n++] = strndup(s - len, len);
             len = 0; 
-        } else {
+        } 
+        
+        else {
             ++s;
         }
     }

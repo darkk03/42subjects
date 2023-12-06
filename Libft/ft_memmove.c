@@ -6,7 +6,7 @@
 /*   By: aaizenbe <aaizenbe@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/30 11:45:43 by aaizenbe          #+#    #+#             */
-/*   Updated: 2023/11/30 11:45:45 by aaizenbe         ###   ########.fr       */
+/*   Updated: 2023/12/06 17:06:24 by aaizenbe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,7 @@ void *ft_memmove(void *dest, const void *src, size_t len){
     return (dest);
 }
     
-int main() 
+/*int main() 
 { 
     char str1[] = "qwe"; 
     char str2[] = "qwee"; 
@@ -55,4 +55,4 @@ int main()
     puts(str1); 
   
     return 0; 
-}
+}*/
