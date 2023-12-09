@@ -12,60 +12,48 @@
 
 #include "libft.h"
 
-static int nlen(long int num);
+int	nlen(long int num);
 
-char *ft_itoa(int n) {
+char	*ft_itoa(int n)
+{
     char *str;
-    unsigned int num;
-    unsigned int len;
+    size_t len;
+    long int numb;
 
-    len = nlen(n);
-
-    // Учитываем отрицательные числа
-    if (n < 0) {
+    numb = n;
+    if (numb < 0)
+        numb = -numb;
+    len = nlen(numb);
+    if (n < 0)
         len++;
+    str = (char *)malloc(len + 1);
+    if (!str)
+        return (NULL);
+    str[len--] = '\0';
+    if (numb == 0)
+        str[0] = '0';
+    while (numb > 0)
+    {
+        str[len--] = (numb % 10) + '0';
+        numb = numb / 10;
     }
-
-    // Проверяем успешность выделения памяти
-    str = (char *)malloc(sizeof(char) * (len + 1));
-
-    if (str == NULL) {
-        return NULL; // Если выделение памяти не удалось
-    }
-
-    // Замени тернарный оператор на конструкцию if-else
-    if (n < 0) {
-        num = -n;
-    } else {
-        num = n;
-    }
-
-    // Добавляем знак минуса для отрицательных чисел
-    if (n < 0) {
+    if (n < 0)
         str[0] = '-';
-    } else {
-        str[0] = '0';  // Добавляем 0 для положительных чисел
-    }
-
-    str[len] = '\0';
-
-    while (num != 0) {
-        len--;
-        str[len] = (num % 10) + '0';
-        num = num / 10;
-    }
-
-    return str;
+    return (str);
 }
 
-static int nlen(long int num) {
+int     nlen(long int num)
+{
     size_t i = 0;
-    while (num >= 10) {
+    while (num >= 10)
+    {
         num = num / 10;
         i++;
     }
     return (i + 1);
 }
+
+
 
 // int main() {
 //     int num = 12345;

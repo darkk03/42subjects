@@ -17,14 +17,19 @@ void *ft_calloc(size_t num, size_t size){
     void *i;
     
     if(size == 0 || num == 0){
-        return NULL;
+        size = 1;
+	num = 1;
     }
     
     i = malloc(num * size);
     
+    if (i != NULL)
+    {
+    	ft_bzero(i, num * size);
+    }
+
     return i;
-    
-    
+        
 }
 
 

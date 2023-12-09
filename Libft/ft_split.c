@@ -36,18 +36,16 @@ char **ft_split(char const *s, char c) {
 
     char **str;
     size_t len;
-
     size_t n;
-
 
     len = 0;
     n = 0;
 
-    if (s == NULL) {
+    str = malloc(sizeof(char *) * (ft_wordcount(s, c) + 1));
+
+    if (!str) {
         return NULL;
     }
-
-    str = malloc(sizeof(char *) * (ft_wordcount(s, c) + 1));
 
     while (*s != '\0') {
         if (*s != c) {

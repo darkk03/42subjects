@@ -18,15 +18,21 @@ char *ft_substr(char const *s, unsigned int start, size_t len) {
     size_t i;
     char *string;
 
-    if (s == NULL || start > ft_strlen(s) || len == 0) {
-        return NULL;
+    if (s == NULL)
+	return NULL;
+
+    if (len > ft_strlen(s + start)) {
+        len = ft_strlen(s + start);
     }
 
-    string = malloc(len + 1);
-
-    if (string == NULL) {
-        return NULL;
+    if (start >= ft_strlen(s) || len == 0) {
+        return ft_strdup("");
     }
+
+    string = (char *)malloc(sizeof(*s) * (len + 1));
+
+    if (string == NULL)
+        return NULL;
 
     i = 0;
     while (i < len && s[start + i] != '\0') {

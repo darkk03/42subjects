@@ -34,13 +34,13 @@ char *ft_strtrim(const char *s1, const char *set) {
     while (s1[i] != '\0' && ft_strchr(set, s1[i]))
         i++;
 
-    while (s1[len - 1] != '\0' && ft_strchr(set, s1[len - 1] != '\0') && len > i)
+    while (len > i && ft_strchr(set, s1[len - 1])) 
         len--;
 
     string1 = (char *)malloc(len - i + 1);
 
     if (string1 == NULL) {
-        return NULL; 
+        return NULL;
     }
 
     while (i < len) {
@@ -49,7 +49,7 @@ char *ft_strtrim(const char *s1, const char *set) {
         j++;
     }
 
-    string1[j] = '\0'; 
+    string1[j] = '\0';
     return string1;
 }
 

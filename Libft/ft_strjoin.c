@@ -22,14 +22,13 @@ char *ft_strjoin(char const *s1, char const *s2) {
     size_t string2;
     char *res;
     
-    if(s1 == NULL || s2 == NULL){
-        return NULL;
-    }
-    
     string1 = ft_strlen(s1);
     string2 = ft_strlen(s2);
     
     res = (char *)malloc(string1 + string2 + 1);
+    if(res == 0){
+        return NULL;
+    }
 
     
     ft_strlcpy(res, s1, string1 + string2 + 1); 

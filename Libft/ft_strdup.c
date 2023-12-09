@@ -21,15 +21,14 @@ char *ft_strdup(const char *s){
     char *string;
 
     i = 0;
-
-    if(s == 0){
-        return NULL;
-    }
     
     j = ft_strlen(s);
-    
+
     string = (char *)malloc(j + 1);
-    
+   
+    if (!string)
+        return NULL;
+
     while(i < j)
     {
         string[i] = s[i];
