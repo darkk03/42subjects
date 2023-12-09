@@ -14,28 +14,32 @@
 
 // size_t ft_strlen(const char *string);
 
-char *ft_substr(char const *s, unsigned int start, size_t len){
-    
-    int i;
+char *ft_substr(char const *s, unsigned int start, size_t len) {
+    size_t i;
     char *string;
-    
-    i = 0;
-    
-    len = ft_strlen(s);
-    string = malloc(len + 1);
-    
-    if(s == 0 || start == 0){
+
+    if (s == NULL || start > ft_strlen(s) || len == 0) {
         return NULL;
     }
 
-    while(i < len){
+    string = malloc(len + 1);
+
+    if (string == NULL) {
+        return NULL;
+    }
+
+    i = 0;
+    while (i < len && s[start + i] != '\0') {
         string[i] = s[start + i];
-        i++ ;
-    }    
+        i++;
+    }
+
     string[i] = '\0';
-    
+
     return string;
 }
+
+
 
 // size_t ft_strlen(const char *string)
 // {

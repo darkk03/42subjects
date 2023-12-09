@@ -12,7 +12,7 @@
 
 #include "libft.h"
 
-int nlen(long int num);
+static int nlen(long int num);
 
 char *ft_itoa(int n) {
     char *str;
@@ -21,32 +21,44 @@ char *ft_itoa(int n) {
 
     len = nlen(n);
 
+    // Учитываем отрицательные числа
+    if (n < 0) {
+        len++;
+    }
+
+    // Проверяем успешность выделения памяти
     str = (char *)malloc(sizeof(char) * (len + 1));
 
+    if (str == NULL) {
+        return NULL; // Если выделение памяти не удалось
+    }
+
+    // Замени тернарный оператор на конструкцию if-else
     if (n < 0) {
-        str[0] = '-';
         num = -n;
-    } 
-    
-    else {
+    } else {
         num = n;
     }
 
-    if (num == 0) {
-        str[0] = '0';
+    // Добавляем знак минуса для отрицательных чисел
+    if (n < 0) {
+        str[0] = '-';
+    } else {
+        str[0] = '0';  // Добавляем 0 для положительных чисел
     }
 
     str[len] = '\0';
 
     while (num != 0) {
-        str[len - 1] = (num % 10) + '0';
-        num = num / 10;
         len--;
+        str[len] = (num % 10) + '0';
+        num = num / 10;
     }
+
     return str;
 }
 
-int nlen(long int num) {
+static int nlen(long int num) {
     size_t i = 0;
     while (num >= 10) {
         num = num / 10;

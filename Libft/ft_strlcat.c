@@ -10,27 +10,39 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-
 #include "libft.h"
 
-size_t  ft_strlcat(char *dst, const char *src, size_t dstsize){
-    
-    size_t i;
-    size_t j;
-    
-    i = 0;
-    j = 0;
-    
-    while(src[i] != '\0' && i < dstsize)
-    {
-        dst[i] = src[j];
-        i++;
-        j++;
-    }
-    
+size_t	ft_strlcat(char *dst, const char *src, size_t size)
+{
+	size_t	i;
+	size_t	j;
+	size_t	dst_len;
 
-    return i;
+	i = 0;
+	j = 0;
+
+	// Находим длину dst
+	while (dst[i] && i < size)
+		i++;
+
+	dst_len = i;
+
+	// Добавляем src к dst
+	while (src[j] && (i + j + 1) < size)
+	{
+		dst[i + j] = src[j];
+		j++;
+	}
+
+	// Завершаем dst нулевым символом
+	if (i < size)
+		dst[i + j] = '\0';
+
+	// Рассчитываем необходимый размер (без учета нулевого символа)
+	return dst_len + ft_strlen(src);
 }
+
+
 
 /*
 int main() {
