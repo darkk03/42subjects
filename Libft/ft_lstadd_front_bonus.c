@@ -14,12 +14,6 @@
 
 // ft_lstadd_front its a function that adds the element ’new’ at the beginning of the list
 
-// typedef struct s_list
-// {
-//     void *content;
-//     struct s_list *next;
-// } t_list;
-
 void ft_lstadd_front(t_list **lst, t_list *new) {
     if (lst == NULL && new == NULL) {
         return;

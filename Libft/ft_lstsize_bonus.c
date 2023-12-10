@@ -1,41 +1,41 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstnew.c                                        :+:      :+:    :+:   */
+/*   ft_lstsize_bonus.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: aaizenbe <aaizenbe@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/12/07 14:42:16 by aaizenbe          #+#    #+#             */
-/*   Updated: 2023/12/07 14:42:16 by aaizenbe         ###   ########.fr       */
+/*   Created: 2023/12/10 13:08:39 by aaizenbe          #+#    #+#             */
+/*   Updated: 2023/12/10 13:08:39 by aaizenbe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-// creates a new list element with the content passed as an argument
+int ft_lstsize(t_list *lst)
+{
+    int i;
+    t_list *list;
 
-// typedef struct s_list
-// {
-//     void *content;
-//     struct s_list *next;
-// } t_list;
-
-t_list *ft_lstnew(void *content){
-    
-    t_list *i;
-
-    i = (t_list *)malloc(sizeof(t_list));
-    if (i == NULL) {
-        return NULL;
+    if(lst == NULL)
+    {
+        return (0);
     }
-    i->content = content;
-    i->next = NULL;
-    return i;
+
+    i = 1;
+    list = lst;
+
+    while(list -> next != NULL)
+    {
+        list = list -> next;
+        i++;
+    }
+    return (i);
 }
 
 // int main() {
-//     char *str = "Hello World";
-//     t_list *list = ft_lstnew(str);
-//     printf("%s\n", list->content);
+//     t_list *list = NULL;
+//     int size = ft_lstsize(list);
+//     printf("size -  %d\n", size);
 //     return 0;
 // }
