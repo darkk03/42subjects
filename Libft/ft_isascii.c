@@ -12,22 +12,22 @@
 
 #include "libft.h"
 
-int ft_isascii(int c){
-
-    if(c >= 0 && c<= 127){
-        return true;
-    }
-    else{
-        return false;
-    }
+int	ft_isascii(int c)
+{
+	if (c >= 0 && c <= 127)
+	{
+		return (true);
+	}
+	else
+	{
+		return (false);
+	}
 }
 
-
 // int main(){
-    
+
 //     char ex[] = "Ä";
-    
-    
+
 //     if(ft_isascii(ex[0])){
 //         printf("is ascii");
 //     }

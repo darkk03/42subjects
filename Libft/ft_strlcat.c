@@ -6,7 +6,7 @@
 /*   By: aaizenbe <aaizenbe@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/30 15:58:20 by aaizenbe          #+#    #+#             */
-/*   Updated: 2023/11/30 15:59:26 by aaizenbe         ###   ########.fr       */
+/*   Updated: 2023/12/13 11:59:49 by aaizenbe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,44 +20,33 @@ size_t	ft_strlcat(char *dst, const char *src, size_t size)
 
 	i = 0;
 	j = 0;
-
-	// Находим длину dst
 	while (dst[i] && i < size)
 		i++;
-
 	dst_len = i;
-
-	// Добавляем src к dst
 	while (src[j] && (i + j + 1) < size)
 	{
 		dst[i + j] = src[j];
 		j++;
 	}
-
-	// Завершаем dst нулевым символом
 	if (i < size)
 		dst[i + j] = '\0';
-
-	// Рассчитываем необходимый размер (без учета нулевого символа)
-	return dst_len + ft_strlen(src);
+	return (dst_len + ft_strlen(src));
 }
 
-
-
 /*
-int main() {
-    
-    
-     char src[10] = "asdgfdgrrj";
+int	main(void) {
 
-     char dst[10] = "";
-     
-     int i;
-     
 
-     i = ft_strlcat(dst, src, 10);
+		char src[10] = "asdgfdgrrj";
 
-     printf("%s\n", dst);
-     return 1;
+		char dst[10] = "";
+
+		int i;
+
+
+		i = ft_strlcat(dst, src, 10);
+
+		printf("%s\n", dst);
+		return (1);
 }
 */

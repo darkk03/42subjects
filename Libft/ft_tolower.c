@@ -10,24 +10,24 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-
 #include "libft.h"
 
-int ft_tolower(int c){
-
-    if(c >= 65 && c <= 90){
-        c = c + 32;
-        return(c);
-    }
-    else{
-        return c;
-    }
-
+int	ft_tolower(int c)
+{
+	if (c >= 65 && c <= 90)
+	{
+		c = c + 32;
+		return (c);
+	}
+	else
+	{
+		return (c);
+	}
 }
 
 // int main(){
-    
+
 //     char ex[] = "b";
-    
+
 //     printf ("c = %d \n",ft_tolower(ex[0]));
 // }

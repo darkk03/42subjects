@@ -15,42 +15,37 @@
 // char *ft_strchr(const char *s, int c);
 // size_t ft_strlen(const char *string);
 
-char *ft_strtrim(const char *s1, const char *set) {
-    
-    char *string1;
-    size_t len;
-    size_t i;
-    size_t j; 
+char	*ft_strtrim(const char *s1, const char *set)
+{
+	char	*string1;
+	size_t	len;
+	size_t	i;
+	size_t	j;
 
-    i = 0;
-    j = 0;
-
-    if (s1 == NULL || set == NULL ) {
-        return NULL;
-    }
-
-    len = ft_strlen(s1);
-
-    while (s1[i] != '\0' && ft_strchr(set, s1[i]))
-        i++;
-
-    while (len > i && ft_strchr(set, s1[len - 1])) 
-        len--;
-
-    string1 = (char *)malloc(len - i + 1);
-
-    if (string1 == NULL) {
-        return NULL;
-    }
-
-    while (i < len) {
-        string1[j] = s1[i];
-        i++;
-        j++;
-    }
-
-    string1[j] = '\0';
-    return string1;
+	i = 0;
+	j = 0;
+	if (s1 == NULL || set == NULL)
+	{
+		return (NULL);
+	}
+	len = ft_strlen(s1);
+	while (s1[i] != '\0' && ft_strchr(set, s1[i]))
+		i++;
+	while (len > i && ft_strchr(set, s1[len - 1]))
+		len--;
+	string1 = (char *)malloc(len - i + 1);
+	if (string1 == NULL)
+	{
+		return (NULL);
+	}
+	while (i < len)
+	{
+		string1[j] = s1[i];
+		i++;
+		j++;
+	}
+	string1[j] = '\0';
+	return (string1);
 }
 
 // char *ft_strchr(const char *s, int c){
@@ -60,16 +55,16 @@ char *ft_strtrim(const char *s1, const char *set) {
 //         if(*s ==  '\0')
 // 			return (NULL);
 // 		else if(*s == c)
-//             return (char *)s;
+//             return ((char *)s);
 //         s++;
 //     }
-//     return NULL;
+//     return (NULL);
 // }
 
 // size_t ft_strlen(const char *string)
 // {
 //     size_t  x;
-    
+
 //     x = 0;
 //     while(string[x] != '\0')
 //         x++;
@@ -77,10 +72,10 @@ char *ft_strtrim(const char *s1, const char *set) {
 // }
 
 // int main() {
-    
+
 //     const char *str1 = "Hello, World";
 //     const char *str2 = "Hd";
-    
+
 //     const char *str3 = ft_strtrim(str1, str2);
 
 //     printf("str1: %s\n", str1);

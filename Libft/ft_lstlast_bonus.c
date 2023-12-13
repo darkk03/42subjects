@@ -10,44 +10,42 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-# include "libft.h"
+#include "libft.h"
 
 // void ft_lstadd_front(t_list **lst, t_list *new) {
 //     if (lst == NULL && new == NULL) {
-//         return;
+//         return ;
 //     }
 
 //     new->next = *lst;
 //     *lst = new;
 // }
 
-t_list *ft_lstlast(t_list *lst)
+t_list	*ft_lstlast(t_list *lst)
 {
-    t_list *list;
+	t_list	*list;
 
-    if(lst == NULL)
-    {
-        return (NULL);
-    }
-
-    list = lst;
-
-    while(list -> next != NULL)
-    {
-        list = list -> next;
-    }
-    return (list);
+	if (lst == NULL)
+	{
+		return (NULL);
+	}
+	list = lst;
+	while (list->next != NULL)
+	{
+		list = list->next;
+	}
+	return (list);
 }
 
 // t_list *ft_lstnew(void *content)
 // {
 //     t_list *i = (t_list *)malloc(sizeof(t_list));
 //     if (i == NULL) {
-//         return NULL;
+//         return (NULL);
 //     }
 //     i->content = content;
 //     i->next = NULL;
-//     return i;
+//     return (i);
 // }
 
 // int main() {
@@ -58,5 +56,5 @@ t_list *ft_lstlast(t_list *lst)
 //     ft_lstadd_front(&list, list3);
 //     t_list *last = ft_lstlast(list);
 //     printf("%s\n", (char*)last->content);
-//     return 0;
+//     return (0);
 // }

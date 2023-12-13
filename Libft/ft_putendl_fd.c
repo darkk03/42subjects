@@ -12,39 +12,38 @@
 
 #include "libft.h"
 
-// Write the string str to file descriptor fd with line break. 
+// Write the string str to file descriptor fd with line break.
 
-//size_t ft_strlen(const char *string);
+// size_t ft_strlen(const char *string);
 
-void ft_putendl_fd(char *s, int fd){
-    
-    int n;
-    
-    n = ft_strlen(s);
-    
-    write(fd, s, n);
-    write(fd, "\n", 1);
+void	ft_putendl_fd(char *s, int fd)
+{
+	int	n;
+
+	n = ft_strlen(s);
+	write(fd, s, n);
+	write(fd, "\n", 1);
 }
 
 /*size_t ft_strlen(const char *string)
 {
-    size_t  x;
-    
-    x = 0;
-    while(string[x] != '\0')
-        x++;
-    return (x);
+	size_t	x;
+
+	x = 0;
+	while(string[x] != '\0')
+		x++;
+	return (x);
 }
 
-int main(){
-    char *test = "rhjdhfthdhfthh";
-    int fd = open("test.txt", O_WRONLY | O_CREAT, 0644);
-    if (fd == -1) {
-        return 1;
-    }
+int	main(void){
+	char *test = "rhjdhfthdhfthh";
+	int fd = open("test.txt", O_WRONLY | O_CREAT, 0644);
+	if (fd == -1) {
+		return (1);
+	}
 
-    ft_putendl_fd(test, fd);
+	ft_putendl_fd(test, fd);
 
-    close(fd);
-    return 0;
+	close(fd);
+	return (0);
 }*/

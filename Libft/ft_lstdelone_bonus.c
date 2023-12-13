@@ -12,34 +12,34 @@
 
 #include "libft.h"
 
-void ft_lstdelone(t_list *lst, void (*del)(void*))
+void	ft_lstdelone(t_list *lst, void (*del)(void *))
 {
-    if(lst == NULL || del == NULL)
-    {
-        return;
-    }
-    if (lst->content)
-    {
-        del(lst->content);
-        lst->content = NULL;
-    }
-    lst->next = NULL;
-    free(lst);
+	if (lst == NULL || del == NULL)
+	{
+		return ;
+	}
+	if (lst->content)
+	{
+		del(lst->content);
+		lst->content = NULL;
+	}
+	lst->next = NULL;
+	free(lst);
 }
 
 // t_list *ft_lstnew(void *content){
 //     t_list *i;
 //     i = (t_list *)malloc(sizeof(t_list));
 //     if (i == NULL) {
-//         return NULL;
+//         return (NULL);
 //     }
 //     i->content = content;
 //     i->next = NULL;
-//     return i;
+//     return (i);
 // }
 
 // int main() {
 //     t_list *list = ft_lstnew("Hello World");
 //     ft_lstdelone(list, &free);
-//     return 0;
+//     return (0);
 // }

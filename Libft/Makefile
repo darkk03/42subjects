@@ -6,7 +6,7 @@
 #    By: aaizenbe <aaizenbe@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/12/08 11:48:23 by aaizenbe          #+#    #+#              #
-#    Updated: 2023/12/08 16:31:20 by aaizenbe         ###   ########.fr        #
+#    Updated: 2023/12/13 12:47:56 by aaizenbe         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -25,7 +25,7 @@ FILES = ft_atoi.c ft_bzero.c ft_calloc.c ft_isalnum.c ft_isalpha.c \
 
 BONUS += ft_lstnew_bonus.c ft_lstadd_front_bonus.c ft_lstsize_bonus.c \
 		 ft_lstlast_bonus.c ft_lstadd_back_bonus.c ft_lstdelone_bonus.c \
-		 ft_lstclear_bonus.c ft_lstiter_bonus.c ft_lstmap_bonus.c \
+		 ft_lstclear_bonus.c \
 
 OBJ = $(FILES:.c=.o)
 OBJBONUS = $(BONUS:.c=.o) 
@@ -33,9 +33,6 @@ OBJBONUS = $(BONUS:.c=.o)
 all: $(NAME)
 
 $(NAME): $(OBJ)
-	$(AR) -r $(NAME) $?
-
-$(NAME): $(OBJBONUS)
 	$(AR) -r $(NAME) $?
 
 clean:

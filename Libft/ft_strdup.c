@@ -14,36 +14,30 @@
 
 // size_t ft_strlen(const char *string);
 
-char *ft_strdup(const char *s){
-    
-    int i;
-    int j;
-    char *string;
+char	*ft_strdup(const char *s)
+{
+	int		i;
+	int		j;
+	char	*string;
 
-    i = 0;
-    
-    j = ft_strlen(s);
-
-    string = (char *)malloc(j + 1);
-   
-    if (!string)
-        return NULL;
-
-    while(i < j)
-    {
-        string[i] = s[i];
-        i++;
-    }
-    
-    string[j] = '\0';
-    
-    return string;
+	i = 0;
+	j = ft_strlen(s);
+	string = (char *)malloc(j + 1);
+	if (!string)
+		return (NULL);
+	while (i < j)
+	{
+		string[i] = s[i];
+		i++;
+	}
+	string[j] = '\0';
+	return (string);
 }
 
 // size_t ft_strlen(const char *string)
 // {
 //     size_t  x;
-    
+
 //     x = 0;
 //     while(string[x] != '\0')
 //         x++;
@@ -52,11 +46,11 @@ char *ft_strdup(const char *s){
 
 // int main() {
 //     const char *str1 = "Hello, World!";
-    
+
 //     char *str2 = ft_strdup(str1);
 
 //     printf("str1 %s\n", str1);
 //     printf("str2 %s\n", str2);
 
-//     return 0;
+//     return (0);
 // }

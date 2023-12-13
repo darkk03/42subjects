@@ -12,22 +12,22 @@
 
 #include "libft.h"
 
-// Write the character c to file descriptor fd. 
+// Write the character c to file descriptor fd.
 
-void ft_putchar_fd(char c, int fd){
-    
-    write(fd, &c, 1);
+void	ft_putchar_fd(char c, int fd)
+{
+	write(fd, &c, 1);
 }
 
 /*int main(){
-    char *test = "r";
-    int fd = open("test.txt", O_WRONLY | O_CREAT, 0644);
-    if (fd == -1) {
-        return 1;
-    }
+	char *test = "r";
+	int fd = open("test.txt", O_WRONLY | O_CREAT, 0644);
+	if (fd == -1) {
+		return (1);
+	}
 
-    ft_putchar_fd(*test, fd);
+	ft_putchar_fd(*test, fd);
 
-    close(fd);
-    return 0;
+	close(fd);
+	return (0);
 }*/

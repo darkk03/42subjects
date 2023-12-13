@@ -12,26 +12,28 @@
 
 #include "libft.h"
 
-int ft_strncmp(const char *str1, const char *str2, size_t n) {
+int	ft_strncmp(const char *str1, const char *str2, size_t n)
+{
+	size_t	i;
 
-    size_t i;
-
-    i = 0;
-
-    while ((i < n) && (str1[i] != '\0' || str2[i] != '\0')) {
-
-	if ((str1[i] == '\0' && str2[i] == '\0') && (i == n)) {
-    	    return 0;
-        }
-        if ((unsigned char)str1[i] > (unsigned char)str2[i]) {
-    	    return 1;
+	i = 0;
+	while ((i < n) && (str1[i] != '\0' || str2[i] != '\0'))
+	{
+		if ((str1[i] == '\0' && str2[i] == '\0') && (i == n))
+		{
+			return (0);
+		}
+		if ((unsigned char)str1[i] > (unsigned char)str2[i])
+		{
+			return (1);
+		}
+		if ((unsigned char)str1[i] < (unsigned char)str2[i])
+		{
+			return (-1);
+		}
+		i++;
 	}
-	if ((unsigned char)str1[i] < (unsigned char)str2[i]) {
-    	    return -1;
-	}
-        i++;
-    }
-    return 0;
+	return (0);
 }
 
 // int main() {
@@ -48,5 +50,5 @@ int ft_strncmp(const char *str1, const char *str2, size_t n) {
 //         printf("str1 > str2 \n");
 //     }
 
-//     return 0;
+//     return (0);
 // }
