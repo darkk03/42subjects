@@ -12,10 +12,46 @@
 
 #include "libft.h"
 
+static size_t	get_start_index(const char *s1, const char *set)
+{
+	size_t i = 0;
+	while (s1[i] != '\0' && ft_strchr(set, s1[i]))
+		i++;
+	return i;
+}
+
+static size_t	get_end_index(const char *s1, const char *set, size_t len)
+{
+	while (len > 0 && ft_strchr(set, s1[len - 1]))
+		len--;
+	return len;
+}
+
+char	*ft_strtrim(const char *s1, const char *set)
+{
+	char	*string1;
+	size_t	len;
+	size_t	i;
+	size_t	j;
+
+	i = get_start_index(s1, set);
+	len = get_end_index(s1, set, ft_strlen(s1));
+	string1 = (char *)malloc(len - i + 1);
+	if (string1 == NULL)
+		return (NULL);
+	j = 0;
+	while (i < len)
+	{
+		string1[j++] = s1[i++];
+	}
+	string1[j] = '\0';
+	return (string1);
+}
+
 // char *ft_strchr(const char *s, int c);
 // size_t ft_strlen(const char *string);
 
-char	*ft_strtrim(const char *s1, const char *set)
+/*char	*ft_strtrim(const char *s1, const char *set)
 {
 	char	*string1;
 	size_t	len;
@@ -46,7 +82,7 @@ char	*ft_strtrim(const char *s1, const char *set)
 	}
 	string1[j] = '\0';
 	return (string1);
-}
+}*\
 
 // char *ft_strchr(const char *s, int c){
 
