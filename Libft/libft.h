@@ -6,19 +6,16 @@
 /*   By: aaizenbe <aaizenbe@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/01 14:45:49 by aaizenbe          #+#    #+#             */
-/*   Updated: 2023/12/13 12:45:44 by aaizenbe         ###   ########.fr       */
+/*   Updated: 2023/12/15 15:41:08 by aaizenbe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef LIBFT_H
 # define LIBFT_H
 
-# include <fcntl.h>
 # include <stdbool.h>
-# include <stddef.h>
 # include <stdio.h>
 # include <stdlib.h>
-# include <string.h>
 # include <unistd.h>
 
 int					ft_atoi(const char *str);
@@ -111,5 +108,10 @@ void				ft_lstclear(t_list **lst, void (*del)(void *));
 void				ft_lstadd_front(t_list **lst, t_list *new);
 
 void				ft_lstadd_back(t_list **lst, t_list *new);
+
+void				ft_lstiter(t_list *lst, void (*f)(void *));
+
+t_list				*ft_lstmap(t_list *lst, void *(*f)(void *),
+						void (*del)(void *));
 
 #endif
