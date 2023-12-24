@@ -12,32 +12,6 @@
 
 #include "ft_printf.h"
 
-int ft_printf(char const *str, ...)
-{
-    va_list args;
-    int count;
-
-    int i;
-    count;
-
-    i = 0;
-    count = 0;
-    va_start(args, str);
-    while (str[i] != '\0')
-    {
-        if (str[i] == '%')
-        {
-            i++;
-            ft_printf_type_checker(str, i, args);
-        }
-        else
-            count = count + ft_putchar(str[i]);
-        i++;
-    }
-    va_end(args);
-    return (count);
-}
-
 static void ft_printf_type_checker( char const *str, int i, va_list args)
 {
     if (str[i] == 'd' || str[i] == 'i')
@@ -56,4 +30,23 @@ static void ft_printf_type_checker( char const *str, int i, va_list args)
         ft_putchar('%');
     else
         return (0);
+}
+
+int ft_printf(char const *str, ...)
+{
+    va_list args;
+    int i;
+
+    i = 0;
+    va_start(args, str);
+    while (str[i] != '\0')
+    {
+        if (str[i] == '%')
+        {
+            i++;
+            ft_printf_type_checker(str, i, args);
+        }
+        i++;
+    }
+    va_end(args);
 }
