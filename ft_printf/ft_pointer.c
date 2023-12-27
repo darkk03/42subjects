@@ -12,3 +12,16 @@
 
 #include "ft_printf.h"
 
+int ft_pointer(unsigned long int n)
+{
+    unsigned long long count;
+
+    count = 0;
+    ft_putstr("0x");
+    count = count + 2;
+    if (n >= 16)
+        count = count + ft_hexadecimal(n / 16, 'x');
+    ft_hexadecimal(n % 16, 'x');
+    return (count);
+
+}

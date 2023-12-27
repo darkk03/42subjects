@@ -14,17 +14,17 @@
 
 size_t ft_strlen(const char *string)
 {
-	size_t	x;
+    size_t x;
 
-	x = 0;
-	while(string[x] != '\0')
-		x++;
-	return (x);
+    x = 0;
+    while (string[x] != '\0')
+        x++;
+    return (x);
 }
 
-void	ft_putstr(char *s)
+void ft_putstr(char *s)
 {
-    int	n;
+    int n;
 
     n = ft_strlen(s);
     write(1, s, n);

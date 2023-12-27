@@ -19,4 +19,14 @@
 # include <stddef.h>
 # include <stdlib.h>
 
+size_t ft_strlen(const char *string);
+
+void	ft_putstr(char *s);
+
+void	ft_putchar(char *s);
+
+int ft_hexadecimal(unsigned int n, char c);
+
+unsigned long long ft_unsigned_int(unsigned int n);
+
 #endif
