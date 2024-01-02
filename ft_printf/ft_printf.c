@@ -6,31 +6,30 @@
 /*   By: aaizenbe <aaizenbe@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/23 12:31:45 by aaizenbe          #+#    #+#             */
-/*   Updated: 2023/12/23 12:31:45 by aaizenbe         ###   ########.fr       */
+/*   Updated: 2024/01/02 17:16:42 by aaizenbe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-static int ft_printf_type_checker( char const *str, int i, va_list args)
+static void ft_printf_type_checker(char str, va_list *args, int *i)
 {
-    if (str[i] == 'd' || str[i] == 'i')
-        ft_putnbr(va_arg(args, long long int));
-    else if (str[i] == 's')
-        ft_putstr(va_arg(args, char *));
-    else if (str[i] == 'c')
-        ft_putchar(va_arg(args, char));
-    else if (str[i] == 'p')
-        ft_pointer(va_arg(args, int));
-    else if (str[i] == 'u')
-        ft_unsigned_int(va_arg(args, unsigned long long));
-    else if (str[i] == 'x' || str[i] == 'X')
-        ft_hexadecimal(va_arg(args, int), str[i]);
-    else if (str[i] == '%')
+    if (str == 'd' || str == 'i')
+        ft_putnbr(va_arg(*args, long long int));
+    else if (str == 's')
+        ft_putstr(va_arg(*args, char *));
+    else if (str == 'c')
+        ft_putchar(va_arg(*args, int ));
+    else if (str == 'p')
+        ft_pointer(va_arg(*args, int));
+    else if (str == 'u')
+        ft_unsigned_int(va_arg(*args, unsigned long long));
+    else if (str == 'x' || str == 'X')
+        ft_hexadecimal(va_arg(*args, int), str);
+    else if (str == '%')
         ft_putchar('%');
     else
-        return (0);
-    return (1);
+        (*i)--;
 }
 
 int ft_printf(char const *str, ...)
@@ -45,11 +44,11 @@ int ft_printf(char const *str, ...)
         if (str[i] == '%')
         {
             i++;
-            if (ft_printf_type_checker(str, i, args))
+            ft_printf_type_checker(str[i], &args, &i);
             i++;
         }
         i++;
     }
     va_end(args);
-    return (0);
+    return (len);
 }
