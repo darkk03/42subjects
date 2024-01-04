@@ -50,5 +50,6 @@ int ft_printf(char const *str, ...)
         i++;
     }
     va_end(args);
-    return (len);
+    return (0);
 }
+
