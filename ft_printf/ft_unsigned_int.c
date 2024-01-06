@@ -12,13 +12,10 @@
 
 #include "ft_printf.h"
 
-unsigned long long ft_unsigned_int(unsigned int n)
+void ft_unsigned_int(unsigned int n , int *count)
 {
-    unsigned long long count;
-
-    count = 0;
     if (n >= 10)
-        count = count + ft_unsigned_int(n / 10);
-    ft_putchar(n % 10 + '0');
-    return (count + 1);
+        ft_unsigned_int(n / 10, count);
+    ft_putchar(n % 10 + '0', count);
+    (*count)++;
 }

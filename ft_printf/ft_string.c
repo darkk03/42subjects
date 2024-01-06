@@ -12,7 +12,7 @@
 
 #include "ft_printf.h"
 
-size_t ft_strlen(const char *string)
+static size_t ft_strlen(const char *string)
 {
     size_t x;
 
@@ -22,10 +22,11 @@ size_t ft_strlen(const char *string)
     return (x);
 }
 
-void ft_putstr(char *s)
+void ft_putstr(char *s , int *count)
 {
     int n;
 
     n = ft_strlen(s);
     write(1, s, n);
+    (*count) += n;
 }

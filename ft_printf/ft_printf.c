@@ -12,44 +12,53 @@
 
 #include "ft_printf.h"
 
-static void ft_printf_type_checker(char str, va_list *args, int *i)
+static void ft_printf_type_checker(char str, va_list *args, int *count)
 {
     if (str == 'd' || str == 'i')
-        ft_putnbr(va_arg(*args, long long int));
+        ft_putnbr(va_arg(*args, int), count);
     else if (str == 's')
-        ft_putstr(va_arg(*args, char *));
+        ft_putstr(va_arg(*args, char *), count);
     else if (str == 'c')
-        ft_putchar(va_arg(*args, int ));
+        ft_putchar(va_arg(*args, int ), count);
     else if (str == 'p')
-        ft_pointer(va_arg(*args, int));
+        ft_pointer(va_arg(*args, int), count);
     else if (str == 'u')
-        ft_unsigned_int(va_arg(*args, unsigned long long));
+        ft_unsigned_int(va_arg(*args, unsigned int), count);
     else if (str == 'x' || str == 'X')
-        ft_hexadecimal(va_arg(*args, int), str);
+        ft_hexadecimal(va_arg(*args, unsigned int), str, count);
     else if (str == '%')
-        ft_putchar('%');
+    {
+        ft_putchar('%' , count);
+        (*count)++;
+    }
     else
-        (*i)--;
+        (*count)--;
 }
 
 int ft_printf(char const *str, ...)
 {
     va_list args;
     int i;
+    int count;
 
     i = 0;
+    count = 0;
     va_start(args, str);
     while (str[i] != '\0')
     {
         if (str[i] == '%')
         {
             i++;
-            ft_printf_type_checker(str[i], &args, &i);
-            i++;
+            ft_printf_type_checker(str[i], &args, &count);
+        }
+        else
+        {
+            ft_putchar(str[i], &count);
+            count++;
         }
         i++;
     }
     va_end(args);
-    return (0);
+    return count;
 }
 

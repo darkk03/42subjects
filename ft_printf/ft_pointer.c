@@ -12,7 +12,7 @@
 
 #include "ft_printf.h"
 
-int ft_pointer(unsigned long int n)
+int ft_pointer(unsigned long int n, int *count)
 {
     unsigned long long count;
 

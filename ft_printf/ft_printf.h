@@ -13,25 +13,22 @@
 #ifndef FT_PRINTF_H
 # define FT_PRINTF_H
 
-
 # include <unistd.h>
 # include <stdarg.h>
 # include <stddef.h>
 # include <stdlib.h>
 
-size_t ft_strlen(const char *string);
+void	ft_putstr(char *s , int *count);
 
-void	ft_putstr(char *s);
+void	ft_putchar(int s , int *count);
 
-void	ft_putchar(int s);
+void    ft_hexadecimal(unsigned int n, char c , int *count);
 
-int ft_hexadecimal(unsigned int n, char c);
+void    ft_pointer(unsigned long int n , int *count);
 
-int ft_pointer(unsigned long int n);
+void    ft_putnbr(long long n , int *count);
 
-void ft_putnbr(long long n);
-
-unsigned long long ft_unsigned_int(unsigned int n);
+void    ft_unsigned_int(unsigned int n , int *count);
 
 int ft_printf(char const *str, ...);
 

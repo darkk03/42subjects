@@ -12,18 +12,15 @@
 
 #include "ft_printf.h"
 
-int ft_hexadecimal(unsigned int n, char c)
+void ft_hexadecimal(unsigned int n, char c, int *count)
 {
-    unsigned long long count;
-
-    count = 0;
     if (n >= 16)
-        count = count + ft_hexadecimal(n / 16, c);
+        ft_hexadecimal(n / 16, c, count); 
     if (c == 'x')
-        ft_putchar(n % 16 + 'a');
+        ft_putchar(n % 16 + 'a', count); // 012456789abcdef
     else if (c == 'X')
-        ft_putchar(n % 16 + 'A');
+        ft_putchar(n % 16 + 'A', count); // 012456789ABCDEF
     else
-        ft_putchar(n % 16 + '0');
-    return (count + 1);
+        ft_putchar(n % 16 + '0', count); // 0123456789
+    (*count)++;
 }
