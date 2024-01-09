@@ -6,7 +6,7 @@
 /*   By: aaizenbe <aaizenbe@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/23 15:08:28 by aaizenbe          #+#    #+#             */
-/*   Updated: 2023/12/23 15:08:28 by aaizenbe         ###   ########.fr       */
+/*   Updated: 2024/01/09 16:55:08 by aaizenbe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,5 +24,4 @@ void ft_putnbr(long long n, int *count)
         ft_putnbr(n / 10, count);
 
     ft_putchar(n % 10 + '0', count);
-    (*count)++;
 }

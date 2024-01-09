@@ -6,7 +6,7 @@
 /*   By: aaizenbe <aaizenbe@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/23 13:38:01 by aaizenbe          #+#    #+#             */
-/*   Updated: 2023/12/23 13:38:01 by aaizenbe         ###   ########.fr       */
+/*   Updated: 2024/01/09 17:00:23 by aaizenbe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,11 @@ void ft_putstr(char *s , int *count)
 {
     int n;
 
+    if (!s)
+    {
+        *count += write(1, "(null)", 6);
+        return ;
+    }
     n = ft_strlen(s);
     write(1, s, n);
     (*count) += n;

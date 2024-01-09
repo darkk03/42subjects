@@ -6,7 +6,7 @@
 /*   By: aaizenbe <aaizenbe@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/23 15:07:52 by aaizenbe          #+#    #+#             */
-/*   Updated: 2023/12/23 15:07:52 by aaizenbe         ###   ########.fr       */
+/*   Updated: 2024/01/09 16:55:52 by aaizenbe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,5 +17,4 @@ void ft_unsigned_int(unsigned int n , int *count)
     if (n >= 10)
         ft_unsigned_int(n / 10, count);
     ft_putchar(n % 10 + '0', count);
-    (*count)++;
 }

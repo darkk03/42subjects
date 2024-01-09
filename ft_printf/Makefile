@@ -6,7 +6,7 @@
 #    By: aaizenbe <aaizenbe@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/12/24 13:03:28 by aaizenbe          #+#    #+#              #
-#    Updated: 2024/01/02 16:21:15 by aaizenbe         ###   ########.fr        #
+#    Updated: 2024/01/09 16:48:39 by aaizenbe         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -23,7 +23,7 @@ OBJ = $(FILES:.c=.o)
 all: $(NAME)
 
 $(NAME): $(OBJ)
-	$(AR) -r $(NAME) $?
+	$(AR) -rcs $(NAME) $?
 
 clean:
 	rm -f $(OBJ)

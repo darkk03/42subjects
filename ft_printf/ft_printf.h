@@ -6,7 +6,7 @@
 /*   By: aaizenbe <aaizenbe@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/23 12:31:26 by aaizenbe          #+#    #+#             */
-/*   Updated: 2024/01/02 16:48:56 by aaizenbe         ###   ########.fr       */
+/*   Updated: 2024/01/09 15:26:25 by aaizenbe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@
 
 void	ft_putstr(char *s , int *count);
 
-void	ft_putchar(int s , int *count);
+void	ft_putchar(char c , int *count);
 
 void    ft_hexadecimal(unsigned int n, char c , int *count);
 
