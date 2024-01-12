@@ -6,14 +6,14 @@
 /*   By: aaizenbe <aaizenbe@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/23 13:38:28 by aaizenbe          #+#    #+#             */
-/*   Updated: 2024/01/09 15:26:22 by aaizenbe         ###   ########.fr       */
+/*   Updated: 2024/01/12 12:03:39 by aaizenbe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-void ft_putchar(char c, int *count)
+void	ft_putchar(char c, int *count)
 {
-    write(1, &c, 1);
-    (*count)++;
+	write(1, &c, 1);
+	(*count)++;
 }
