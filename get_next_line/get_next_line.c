@@ -11,53 +11,54 @@
 /* ************************************************************************** */
 
 #include "get_next_line.h"
-// lee el archivo linea por linea y guarda en save
+
+static char *ft_free(char *a) 
+{
+    free(a);
+    a = NULL;
+    return (NULL);
+}
+
 static char ft_readfunc(int fd, char *buf, char *save) 
 {
-    int ret; // numero de bytes leidos
-    char *str; // linea leida
+    int ret; // n butes leidos
+    char *str; 
 
     ret = 1;
-    while (ret > 0)
+    while (ret != '\0')
     {
         ret = read(fd, buf, BUFFER_SIZE); // lee el archivo y guarda en ret
         if (ret == -1)
             return (NULL);
-        buf[ret] = '\0'; // añade el caracter nulo al final de la linea leida
-        if (!save)
-            save = ft_strdup(buf);  // duplica la cadena de caracteres buf para guardarla en save
-        else
-            save = ft_strjoin(save, buf); // concatena la cadena de caracteres buf para guardarla en save
+        else if (ret == 0)
+            break ;
+        buf[ret] = '\0'; // null al final de la linea leida
+        if (save == NULL) 
+            save = ft_strdup(buf);  // duplica la cadena de  buf para guardarla en save
+        str = save;
+        save = ft_strjoin(save, buf); // concatena  buf para guardar en save
+        ft_free(str);
         if (ft_strchr(save, '\n')) // si hay un salto de linea para 
             break ;
     }
-    str = ft_substr(save, 0, ft_strchr(save, '\n') - save); // guarda en str la linea leida
-    save = ft_substr(save, ft_strchr(save, '\n') - save + 1, ft_strlen(save)); // guarda en save la linea leida
-    return (str);
+    return (save);
 }
 
-static char *ft_endfunc(char *str) // guarda la ultima linea leida
+static char *ft_linebreak(char *str) 
 {
     char *save;
+    size_t i;
 
-    if (ft_strchr(str, '\n')) // si hay un salto de linea para 
-    {
-        save = ft_substr(str, ft_strchr(str, '\n') - str + 1, ft_strlen(str)); // guarda en save la linea leida
-        str = ft_substr(str, 0, ft_strchr(str, '\n') - str); // guarda en str la linea leida
-    }
-    else
-    {
-        save = ft_strdup(str);
-        free(str);
-    }
-    return save;
-}
-
-static char *ft_free(char *save) 
-{
-    free(save);
-    save = NULL;
-    return (NULL);
+    i = 0;
+    while (str[i] != '\n' && str[i] != '\0') // cuenta los caracteres de la linea leida
+        i++;
+    if (str[i] == '\0') // si hay un salto de linea
+        return (NULL);
+    save = ft_substr(str, 0, i); // guarda la linea leida en save
+    if (save == NULL)
+        ft_free(save);
+    str[i] = '\0'; 
+    return (save);
 }
 
 char *get_next_line(int fd) // lee el archivo linea , guarda la linea leida y la devuelve 
@@ -75,6 +76,6 @@ char *get_next_line(int fd) // lee el archivo linea , guarda la linea leida y la
     ft_free(buf);
     if (str == NULL)
         return (NULL);
-    save = endfunc(str);
+    save = ft_linebreak(str);
     return (str);
 }
