@@ -60,3 +60,7 @@
 - `%x`: Print a number in hexadecimal (base 16), with lowercase.
 - `%X`: Print a number in hexadecimal (base 16), with uppercase.
 - `%%`: Print a percent sign.
+
+## get_next_line 
+
+This project is about programming a function that allows you to read content line by line. This is done by returning a line read from a file descriptor
