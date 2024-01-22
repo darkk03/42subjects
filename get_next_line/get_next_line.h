@@ -6,7 +6,7 @@
 /*   By: aaizenbe <aaizenbe@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/03 17:46:40 by aaizenbe          #+#    #+#             */
-/*   Updated: 2024/01/03 17:46:40 by aaizenbe         ###   ########.fr       */
+/*   Updated: 2024/01/22 14:50:35 by aaizenbe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,8 +19,10 @@
 # endif
 
 # include <stdlib.h>
-//# include <unistd.h>
-#include <stddef.h>
+# include <unistd.h>
+# include <stddef.h>
+# include <fcntl.h>
+# include <stdio.h>
 
 size_t	ft_strlen(const char *string);
 
@@ -33,5 +35,11 @@ char	*ft_substr(char const *s, unsigned int start, size_t len);
 char	*ft_strjoin(char const *s1, char const *s2);
 
 char *get_next_line(int fd);
+
+char *ft_readfunc(int fd, char *buf, char *save);
+
+char *ft_linebreak(char *str);
+
+char *ft_free(char *a);    
 
 #endif
