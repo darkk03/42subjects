@@ -34,7 +34,7 @@ char *ft_readfunc(int fd, char *buf, char *save)
             break ;
         buf[ret] = '\0'; // null al final de la linea leida
         if (save == NULL)
-            save = ft_strdup(buf);  // duplica la cadena de  buf para guardarla en save
+            save = ft_strdup(""); 
         str = save;
         save = ft_strjoin(save, buf); // concatena  buf para guardar en save
         ft_free(str);
