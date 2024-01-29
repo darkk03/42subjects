@@ -6,7 +6,7 @@
 /*   By: aaizenbe <aaizenbe@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/03 17:46:51 by aaizenbe          #+#    #+#             */
-/*   Updated: 2024/01/03 17:46:51 by aaizenbe         ###   ########.fr       */
+/*   Updated: 2024/01/29 15:30:24 by aaizenbe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,12 +67,11 @@ char	*ft_substr(char const *s, unsigned int start, size_t len)
 		return (ft_strdup(""));
 	}
 	else if (len > ft_strlen(s + start))
-	{
 		len = ft_strlen(s + start);
-	}
-	string = (char *)malloc(sizeof(*s) * (len + 1));
+	string = (char *)malloc(sizeof(char) * (len + 1));
 	if (string == NULL)
 		return (NULL);
+	
 	i = 0;
 	while (i < len && s[start + i] != '\0')
 	{
@@ -82,28 +81,61 @@ char	*ft_substr(char const *s, unsigned int start, size_t len)
 	string[i] = '\0';
 	return (string);
 }
-
-char	*ft_strjoin(char const *s1, char const *s2)
+//123
+size_t	ft_strlcpy(char *dst, const char *src, size_t dstsize)
 {
-	int		i;
-	int		j;
-	char	*str;
+	size_t	i;
+
+	i = 0;
+	while (i + 1 < dstsize && src[i] != '\0')
+	{
+		dst[i] = src[i];
+		i++;
+	}
+	if (dstsize > 0)
+	{
+		dst[i] = '\0';
+	}
+	while (src[i] != '\0')
+	{
+		i++;
+	}
+	return (i);
+}
+size_t	ft_strlcat(char *dst, const char *src, size_t size)
+{
+	size_t	i;
+	size_t	j;
+	size_t	dst_len;
 
 	i = 0;
 	j = 0;
-	str = (char *)malloc(sizeof(char) * (ft_strlen(s1) + ft_strlen(s2) + 1));
-	if (str == NULL)
-		return (NULL);
-	while (s1[i] != '\0')
-	{
-		str[i] = s1[i];
+	while (dst[i] && i < size)
 		i++;
-	}
-	while (s2[j] != '\0')
+	dst_len = i;
+	while (src[j] && (i + j + 1) < size)
 	{
-		str[i + j] = s2[j];
+		dst[i + j] = src[j];
 		j++;
 	}
-	str[i + j] = '\0';
-	return (str);
+	if (i < size)
+		dst[i + j] = '\0';
+	return (dst_len + ft_strlen(src));
+}
+
+
+char	*ft_strjoin(char const *s1, char const *s2)
+{
+	size_t	string1;
+	size_t	string2;
+	char	*res;
+
+	string1 = ft_strlen(s1);
+	string2 = ft_strlen(s2);
+	res = (char *)malloc(string1 + string2 + 1);
+	if (res == 0)
+		return (NULL);
+	ft_strlcpy(res, s1, string1 + string2 + 1);
+	ft_strlcat(res, s2, string1 + string2 + 1);
+	return (res);
 }
