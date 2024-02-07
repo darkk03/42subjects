@@ -6,7 +6,7 @@
 /*   By: aaizenbe <aaizenbe@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/03 17:46:51 by aaizenbe          #+#    #+#             */
-/*   Updated: 2024/01/29 15:30:24 by aaizenbe         ###   ########.fr       */
+/*   Updated: 2024/02/01 14:44:00 by aaizenbe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,11 +67,12 @@ char	*ft_substr(char const *s, unsigned int start, size_t len)
 		return (ft_strdup(""));
 	}
 	else if (len > ft_strlen(s + start))
+	{
 		len = ft_strlen(s + start);
-	string = (char *)malloc(sizeof(char) * (len + 1));
+	}
+	string = (char *)malloc(sizeof(*s) * (len + 1));
 	if (string == NULL)
 		return (NULL);
-	
 	i = 0;
 	while (i < len && s[start + i] != '\0')
 	{
