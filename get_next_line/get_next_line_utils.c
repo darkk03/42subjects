@@ -6,7 +6,7 @@
 /*   By: aaizenbe <aaizenbe@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/03 17:46:51 by aaizenbe          #+#    #+#             */
-/*   Updated: 2024/02/01 14:44:00 by aaizenbe         ###   ########.fr       */
+/*   Updated: 2024/02/07 11:58:27 by aaizenbe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -140,3 +140,13 @@ char	*ft_strjoin(char const *s1, char const *s2)
 	ft_strlcat(res, s2, string1 + string2 + 1);
 	return (res);
 }
+
+
+
+
+
+
+
+
+
+
