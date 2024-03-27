@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   get_next_line.c                                    :+:      :+:    :+:   */
+/*   get_next_line_bonus.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: aaizenbe <aaizenbe@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/01/03 17:46:47 by aaizenbe          #+#    #+#             */
-/*   Updated: 2024/02/07 15:44:54 by aaizenbe         ###   ########.fr       */
+/*   Created: 2024/02/07 15:10:42 by aaizenbe          #+#    #+#             */
+/*   Updated: 2024/02/07 15:45:36 by aaizenbe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,23 +67,23 @@ char	*get_next_line(int fd)
 {
 	char		*str;
 	char		*buf;
-	static char	*save;
+	static char	*save[2048];
 
 	if (fd < 0 || BUFFER_SIZE <= 0)
 		return (0);
 	if (read(fd, 0, 0) == -1)
 	{
-		free(save);
-		save = NULL;
+		free(save[fd]);
+		save[fd] = NULL;
 		return (NULL);
 	}
 	buf = (char *)malloc(sizeof(char) * (BUFFER_SIZE + 1));
 	if (!buf)
 		return (NULL);
-	str = ft_readfunc(fd, buf, save);
+	str = ft_readfunc(fd, buf, save[fd]);
 	ft_free(buf);
 	if (!str)
 		return (NULL);
-	save = ft_linebreak(str);
+	save[fd] = ft_linebreak(str);
 	return (str);
 }
